@@ -24,12 +24,12 @@ func _process(delta):
 		if current_animation != "Left":
 			current_animation = "Left"
 			play("Left")
+			scale.x = 1
 	if Input.is_action_pressed("right"):
 		if current_animation != "Right":
 			current_animation = "Right"
 			play("Right")
-	else:
-		if current_animation != "Idle":
-			current_animation = "Idle"
-			play("Idle")
+			scale.x = -1
+	#else:
+	#		play("Idle")
 #	pass

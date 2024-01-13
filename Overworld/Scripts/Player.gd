@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-
+var idle_timer = 0
 var velocity : Vector2 = Vector2()
 var direction : Vector2 = Vector2()
 export var speed = 0
@@ -29,6 +29,13 @@ func _ready():
 	pass
 
 func _process(delta):
+	
+	if velocity != Vector2(0,0):
+		idle_timer = 5
+	if velocity == Vector2(0,0):
+		idle_timer -= delta
+		if idle_timer <= 0:
+			$AnimatedSprite.play("Idle")
 	key_input()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
