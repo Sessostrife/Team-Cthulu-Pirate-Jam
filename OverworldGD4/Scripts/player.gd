@@ -8,14 +8,23 @@ const speed = 100
 func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("interact"):
 		var actionables = actionable_finder.get_overlapping_areas()
-		if actionables.size() > 0:
+		if actionables.size() > 0 and global.current_state_player != "menu":
 			global.current_state_player = "interacting"
 			play_anim(0)
 			actionables[0].action()
-			return
+	if Input.is_action_just_pressed("interact"):
+		pass
 
 func _physics_process(delta):
-	print(global.overworld_active)
+	#var tree = get_tree()
+	#var current_scene = tree.get_current_scene()
+	#global.active_scene = current_scene.get_name()
+		
+	#if global.active_scene == "Saloon":
+	#	$Camera2D.limit_left = -50
+	#	$Camera2D.limit_top = -500
+	#	$Camera2D.limit_right = 500
+	#	$Camera2D.limit_bottom = 50
 	if global.current_state_player == "walking":
 		player_movement(delta)
 	
@@ -76,7 +85,7 @@ func play_anim(movement):
 			anim.play("LEFT_IDLE")
 			
 	if dir == "r":
-		anim.flip_h = true
+		#anim.flip_h = true
 		if movement == 1:
 			anim.play("RIGHT_WALKING")
 		elif movement == 0:

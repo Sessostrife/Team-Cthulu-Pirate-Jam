@@ -1,32 +1,15 @@
-[gd_scene load_steps=15 format=3 uid="uid://dmwm0utolfdgh"]
+[gd_scene load_steps=16 format=3 uid="uid://dmwm0utolfdgh"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_1d1aj"]
 [ext_resource type="Texture2D" uid="uid://1bwpjrtljv5f" path="res://Assets/Texture/TX Player.png" id="2_812ue"]
 [ext_resource type="PackedScene" uid="uid://ctmnx2r2g6xk6" path="res://Scenes/Pause.tscn" id="3_5m45y"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_whlep"]
-atlas = ExtResource("2_812ue")
-region = Rect2(96, 0, 32, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_b373e"]
-atlas = ExtResource("2_812ue")
-region = Rect2(0, 0, 32, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bfm1s"]
-atlas = ExtResource("2_812ue")
-region = Rect2(96, 0, 32, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_82ht0"]
-atlas = ExtResource("2_812ue")
-region = Rect2(64, 0, 32, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cjcoc"]
-atlas = ExtResource("2_812ue")
-region = Rect2(96, 0, 32, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qsy2u"]
-atlas = ExtResource("2_812ue")
-region = Rect2(64, 0, 32, 64)
+[ext_resource type="Texture2D" uid="uid://b87s2jhthtrnn" path="res://Assets/Down3.png" id="3_sxfj0"]
+[ext_resource type="Texture2D" uid="uid://cpkk36bu0ths8" path="res://Assets/Down2.png" id="4_7cgsg"]
+[ext_resource type="Texture2D" uid="uid://jlt3g2jicjr3" path="res://Assets/Down1.png" id="5_3dh7w"]
+[ext_resource type="Texture2D" uid="uid://dq01py4dybaxn" path="res://Assets/Left1.png" id="6_en3fb"]
+[ext_resource type="Texture2D" uid="uid://diu2lamu5y2vw" path="res://Assets/Left2.png" id="7_qs2ue"]
+[ext_resource type="Texture2D" uid="uid://b8nakngpdo6kb" path="res://Assets/Right1.png" id="8_356px"]
+[ext_resource type="Texture2D" uid="uid://bi55n8seg2431" path="res://Assets/Right2.png" id="9_y11g1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tttr3"]
 atlas = ExtResource("2_812ue")
@@ -40,7 +23,7 @@ region = Rect2(32, 0, 32, 64)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_whlep")
+"texture": ExtResource("3_sxfj0")
 }],
 "loop": true,
 "name": &"DOWN_IDLE",
@@ -48,7 +31,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_b373e")
+"texture": ExtResource("4_7cgsg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_sxfj0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_3dh7w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_sxfj0")
 }],
 "loop": true,
 "name": &"DOWN_WALKING",
@@ -56,7 +48,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bfm1s")
+"texture": ExtResource("6_en3fb")
 }],
 "loop": true,
 "name": &"LEFT_IDLE",
@@ -64,7 +56,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_82ht0")
+"texture": ExtResource("7_qs2ue")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_en3fb")
 }],
 "loop": true,
 "name": &"LEFT_WALKING",
@@ -72,7 +67,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_cjcoc")
+"texture": ExtResource("8_356px")
 }],
 "loop": true,
 "name": &"RIGHT_IDLE",
@@ -80,7 +75,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qsy2u")
+"texture": ExtResource("9_y11g1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_356px")
 }],
 "loop": true,
 "name": &"RIGHT_WALKING",
@@ -104,12 +102,12 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b7y22"]
-size = Vector2(19, 42)
+size = Vector2(22, 30)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4074"]
-radius = 18.0
+radius = 14.1421
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_1d1aj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -117,16 +115,21 @@ sprite_frames = SubResource("SpriteFrames_jcuen")
 animation = &"DOWN_IDLE"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 4)
+position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_b7y22")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+limit_left = -1111111
+limit_top = -1111111111
+limit_right = 2000000000
+limit_bottom = 200000000
+editor_draw_limits = true
 
 [node name="Pause" parent="Camera2D" instance=ExtResource("3_5m45y")]
-offset_left = -184.0
-offset_top = -53.0
-offset_right = -184.0
-offset_bottom = -53.0
+offset_left = -240.0
+offset_top = -135.0
+offset_right = -240.0
+offset_bottom = -135.0
 
 [node name="Direction" type="Marker2D" parent="."]
 position = Vector2(0, 5)

@@ -26,7 +26,7 @@ func _on_play_pressed():
 
 
 func _on_options_pressed():
-	pass
+	global.options_menu = true
 
 
 func _on_quit_pressed():

@@ -1,11 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://d16cwvwegcd5x"]
+[gd_scene load_steps=12 format=3 uid="uid://d16cwvwegcd5x"]
 
 [ext_resource type="PackedScene" uid="uid://db0a25pcaquu1" path="res://Scenes/background_overworld.tscn" id="1_1cjuc"]
 [ext_resource type="PackedScene" uid="uid://dmwm0utolfdgh" path="res://Scenes/player.tscn" id="1_m734f"]
+[ext_resource type="Texture2D" uid="uid://cdehdlhg28ers" path="res://Assets/map.png" id="2_qod7r"]
+[ext_resource type="PackedScene" uid="uid://cbkemiltjddrh" path="res://Scenes/Overworld_background.tscn" id="3_jb1g0"]
 [ext_resource type="PackedScene" uid="uid://cdnyhy8y7ldmn" path="res://Scenes/Actionable.tscn" id="3_utis4"]
 [ext_resource type="PackedScene" uid="uid://bguoyr16gemo2" path="res://Scenes/NPC.tscn" id="3_x7yp7"]
 [ext_resource type="Resource" uid="uid://cxv1co0doybqr" path="res://Dialogue/main.dialogue" id="4_xf0bf"]
 [ext_resource type="PackedScene" uid="uid://y2bopcnoasib" path="res://Scenes/Appletree.tscn" id="6_trr0u"]
+[ext_resource type="PackedScene" uid="uid://c7o5yedrysdmi" path="res://Scenes/Bank.tscn" id="7_pnlt6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pmxgd"]
 radius = 14.0357
@@ -16,6 +19,13 @@ radius = 49.0102
 [node name="World" type="Node2D"]
 
 [node name="Background overworld" parent="." instance=ExtResource("1_1cjuc")]
+visible = false
+
+[node name="Background overworld2" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_qod7r")
+
+[node name="OverworldBackground" parent="." instance=ExtResource("3_jb1g0")]
 
 [node name="Npc" parent="." instance=ExtResource("3_x7yp7")]
 position = Vector2(100, 100)
@@ -28,6 +38,8 @@ position = Vector2(0, 10)
 shape = SubResource("CircleShape2D_pmxgd")
 
 [node name="Player" parent="." instance=ExtResource("1_m734f")]
+
+[node name="Buildings" parent="." instance=ExtResource("7_pnlt6")]
 
 [node name="Appletree" parent="." instance=ExtResource("6_trr0u")]
 

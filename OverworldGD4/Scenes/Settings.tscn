@@ -1,9 +1,30 @@
-[gd_scene format=3 uid="uid://d2o1mflpu6riq"]
+[gd_scene load_steps=3 format=3 uid="uid://d2o1mflpu6riq"]
+
+[ext_resource type="Script" path="res://Scripts/Settings.gd" id="1_0c5tx"]
+[ext_resource type="FontFile" uid="uid://1lxsncmfgwoc" path="res://Fonts/Gerhaus-PK69E.ttf" id="1_una6n"]
 
 [node name="Settings" type="Control"]
+light_mask = 8
+visibility_layer = 8
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_0c5tx")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 192.0
+color = Color(0.431373, 0.2, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -112.0
+offset_right = 368.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("1_una6n")
+text = "Controls"
+horizontal_alignment = 1
