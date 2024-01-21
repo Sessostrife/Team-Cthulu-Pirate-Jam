@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://doaqky1bbwguo"]
+
+[ext_resource type="Script" path="res://Scenes/ui/stats_ui.gd" id="1_clxrj"]
+[ext_resource type="Texture2D" uid="uid://cqd26ai70o37d" path="res://art/block.png" id="2_plf3l"]
+[ext_resource type="Texture2D" uid="uid://eoggmk7b1q5r" path="res://art/health.png" id="3_b7xpy"]
+
+[node name="StatsUI" type="HBoxContainer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -48.5
+offset_right = 48.5
+offset_bottom = 32.0
+grow_horizontal = 2
+alignment = 1
+script = ExtResource("1_clxrj")
+
+[node name="Block" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="BlockImage" type="TextureRect" parent="Block"]
+layout_mode = 2
+texture = ExtResource("2_plf3l")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="BlockLabel" type="Label" parent="Block"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+text = "6
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Health" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="HealthImage" type="TextureRect" parent="Health"]
+layout_mode = 2
+texture = ExtResource("3_b7xpy")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="HealthLabel" type="Label" parent="Health"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+text = "10
+"
+horizontal_alignment = 1
+vertical_alignment = 1
