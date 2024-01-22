@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbl1exeaxuw6l"
-path="res://.godot/imported/Footman.png.png-43f10d98a6959e92fa8bd6760f208b3d.ctex"
+uid="uid://dep2s7o013y6r"
+path="res://.godot/imported/texas_red.png-575821f8a703438c4e2b582d4c31dc4a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Footman.png.png"
-dest_files=["res://.godot/imported/Footman.png.png-43f10d98a6959e92fa8bd6760f208b3d.ctex"]
+source_file="res://art/texas_red.png"
+dest_files=["res://.godot/imported/texas_red.png-575821f8a703438c4e2b582d4c31dc4a.ctex"]
 
 [params]
 

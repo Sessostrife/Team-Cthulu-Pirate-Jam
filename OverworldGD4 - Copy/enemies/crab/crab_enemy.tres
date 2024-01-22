@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://ibr8muivqslt" path="res://enemies/crab/crab_enemy_ai.tscn" id="1_lrfem"]
 [ext_resource type="Script" path="res://custom_resources/enemy_stats.gd" id="1_tjhfn"]
-[ext_resource type="Texture2D" uid="uid://caxtj57p8a445" path="res://art/player_sprite.png" id="4_sbnnv"]
+[ext_resource type="Texture2D" uid="uid://dep2s7o013y6r" path="res://art/texas_red.png" id="2_8sxec"]
 
 [resource]
 script = ExtResource("1_tjhfn")
 ai = ExtResource("1_lrfem")
 max_health = 10
-art = ExtResource("4_sbnnv")
+art = ExtResource("2_8sxec")

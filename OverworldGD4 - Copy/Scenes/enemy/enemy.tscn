@@ -3,12 +3,12 @@
 [ext_resource type="Script" path="res://Scenes/enemy/enemy.gd" id="1_rwnhv"]
 [ext_resource type="Resource" uid="uid://borvds3kc3ndn" path="res://enemies/crab/crab_enemy.tres" id="2_w1uo7"]
 [ext_resource type="PackedScene" uid="uid://doaqky1bbwguo" path="res://Scenes/ui/stats_ui.tscn" id="3_1i06f"]
+[ext_resource type="Texture2D" uid="uid://dep2s7o013y6r" path="res://art/texas_red.png" id="3_neal5"]
 [ext_resource type="Texture2D" uid="uid://cccy7wnlu6mi7" path="res://art/arrow2.png" id="3_nv61a"]
-[ext_resource type="Texture2D" uid="uid://bbl1exeaxuw6l" path="res://art/Footman.png.png" id="3_nvdqt"]
 [ext_resource type="PackedScene" uid="uid://dca7aiaplyf0y" path="res://Scenes/ui/intent_ui.tscn" id="4_miw00"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sgexd"]
-size = Vector2(102, 148)
+size = Vector2(75, 84)
 
 [node name="Enemy" type="Area2D" groups=["enemies"]]
 collision_layer = 4
@@ -16,15 +16,16 @@ script = ExtResource("1_rwnhv")
 stats = ExtResource("2_w1uo7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("3_nvdqt")
+scale = Vector2(2, 2)
+texture = ExtResource("3_neal5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_sgexd")
 
 [node name="Arrow" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(90, 0)
+position = Vector2(166, 78)
 scale = Vector2(10, 13.605)
 texture = ExtResource("3_nv61a")
 
@@ -32,17 +33,17 @@ texture = ExtResource("3_nv61a")
 anchors_preset = 7
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = -49.0
-offset_top = 75.0
-offset_right = 54.0
-offset_bottom = 110.0
+offset_left = -48.0
+offset_top = 84.0
+offset_right = 55.0
+offset_bottom = 119.0
 grow_vertical = 0
 
 [node name="IntentUI" parent="." instance=ExtResource("4_miw00")]
-offset_left = -13.0
-offset_top = -86.0
-offset_right = 27.0
-offset_bottom = -72.0
+offset_left = -23.0
+offset_top = -105.0
+offset_right = 17.0
+offset_bottom = -82.0
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]

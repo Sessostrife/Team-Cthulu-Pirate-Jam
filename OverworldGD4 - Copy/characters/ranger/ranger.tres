@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CharacterStats" load_steps=4 format=3 uid="uid://dtggpyue5ij5m"]
+
+[ext_resource type="Texture2D" uid="uid://caxtj57p8a445" path="res://art/player_sprite.png" id="1_ejmbo"]
+[ext_resource type="Script" path="res://custom_resources/character_stats.gd" id="2_ma4t1"]
+[ext_resource type="Resource" uid="uid://dehn1gkbb7w61" path="res://characters/ranger/ranger_starting_deck.tres" id="3_pde3t"]
+
+[resource]
+script = ExtResource("2_ma4t1")
+starting_deck = ExtResource("3_pde3t")
+cards_per_turn = 4
+max_mana = 3
+max_health = 10
+art = ExtResource("1_ejmbo")

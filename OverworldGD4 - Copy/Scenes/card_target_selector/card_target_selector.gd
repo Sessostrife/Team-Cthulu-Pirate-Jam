@@ -1,6 +1,7 @@
 extends Node2D
 
 const ARC_POINTS := 10
+const MOUSE_Y_SNAPBACK_THRESHOLD := 300
 
 @onready var area_2d: Area2D = $Area2D
 @onready var card_arc: Line2D = $CanvasLayer/CardArc
@@ -18,8 +19,14 @@ func _process(_delta:float)->void:
 	if not targeting:
 		return
 		
-	area_2d.position = get_local_mouse_position()
-	card_arc.points = _get_points()
+	var mouse := get_local_mouse_position()
+	if mouse.y > 180:
+		card_arc.hide()
+		
+	else:
+		card_arc.show()	
+		area_2d.position = get_local_mouse_position()
+		card_arc.points = _get_points()
 	
 	
 func _get_points()->Array:

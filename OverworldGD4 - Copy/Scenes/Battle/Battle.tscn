@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://lg3a0sa67mbt"]
+[gd_scene load_steps=17 format=3 uid="uid://lg3a0sa67mbt"]
 
 [ext_resource type="Script" path="res://Scenes/Battle/Battle.gd" id="1_lax15"]
 [ext_resource type="PackedScene" uid="uid://b1ga5ssrfrlur" path="res://Scenes/enemy/enemy.tscn" id="2_dpy4l"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://candu5jkvex67" path="res://Scenes/card_ui/mana_ui.tscn" id="11_vckwl"]
 [ext_resource type="PackedScene" uid="uid://buep21yky3l5i" path="res://Scenes/ui/tooltip.tscn" id="12_hqhj2"]
 [ext_resource type="Theme" uid="uid://d1g4bjj180ctf" path="res://maintheme.tres" id="13_at7y2"]
+[ext_resource type="PackedScene" uid="uid://ctmnx2r2g6xk6" path="res://Scenes/Pause.tscn" id="14_mnx2u"]
 [ext_resource type="Script" path="res://Scenes/ui/red_flash.gd" id="14_sddli"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sh57a"]
@@ -40,11 +41,11 @@ debug_color = Color(0, 0.6, 0.701961, 0.0666667)
 script = ExtResource("4_sdwvh")
 
 [node name="Enemy" parent="EnemyHandler" instance=ExtResource("2_dpy4l")]
-position = Vector2(417, 144)
+position = Vector2(382, 139)
 scale = Vector2(0.75, 0.75)
 
 [node name="Player" parent="." instance=ExtResource("8_vau2o")]
-position = Vector2(58, 121)
+position = Vector2(17, 62)
 scale = Vector2(0.8, 0.8)
 stats = ExtResource("9_arr6m")
 
@@ -99,6 +100,12 @@ grow_horizontal = 0
 grow_vertical = 0
 theme = ExtResource("13_at7y2")
 text = "End Turn"
+
+[node name="Pause" parent="BattleUI" instance=ExtResource("14_mnx2u")]
+offset_left = 425.0
+offset_top = 241.0
+offset_right = 425.0
+offset_bottom = 241.0
 
 [node name="RedFlash" type="CanvasLayer" parent="."]
 layer = 2

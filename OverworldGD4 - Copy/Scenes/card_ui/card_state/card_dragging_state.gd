@@ -1,5 +1,6 @@
 extends CardState
 
+const MOUSE_Y_SNAPBACK_THRESHOLD = 180
 const DRAG_MINIMUM_THRESHOLD :=0.05
 
 var minimum_drag_time_elapsed := false
@@ -10,6 +11,8 @@ func enter()->void:
 	if ui_layer:
 		card_ui.reparent(ui_layer)
 		
+	card_ui.drop_point_detector.monitoring = true
+	card_ui.global_position = card_ui.get_global_mouse_position() - card_ui.pivot_offset
 	card_ui.panel.set("theme_override_styles/panel", card_ui.DRAG_STYLEBOX)
 	Events.card_drag_started.emit(card_ui)
 	
@@ -27,8 +30,9 @@ func on_input(event: InputEvent)->void:
 	var mouse_motion := event is InputEventMouseMotion
 	var cancel = event.is_action_pressed("right_mouse")
 	var confirm = event.is_action_released("left_mouse") or event.is_action_pressed("left_mouse")
+	var mouse_at_bottom := card_ui.get_global_mouse_position().y > MOUSE_Y_SNAPBACK_THRESHOLD
 	
-	if  single_targeted and mouse_motion and card_ui.targets.size()>0:
+	if  single_targeted and mouse_motion and card_ui.targets.size()>0 and not mouse_at_bottom:
 		transition_requested.emit(self, CardState.State.AIMING)
 		return
 

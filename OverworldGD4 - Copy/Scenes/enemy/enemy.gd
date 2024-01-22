@@ -1,7 +1,7 @@
 class_name Enemy
 extends Area2D
 
-const ARROW_OFFSET := 10
+const ARROW_OFFSET := 40
 
 @export var stats: EnemyStats: set = set_enemy_stats
 

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://dydta7w84jb5h"]
 
-[ext_resource type="Texture2D" uid="uid://cccy7wnlu6mi7" path="res://art/arrow2.png" id="1_nggpn"]
+[ext_resource type="Texture2D" uid="uid://c0o1tirpx7g17" path="res://art/strike.png" id="1_6lq35"]
 [ext_resource type="Script" path="res://characters/warrior/cards/warrior_axe_attack.gd" id="1_orbt2"]
 
 [resource]
@@ -9,5 +9,6 @@ id = ""
 type = 0
 target = 1
 cost = 1
-icon = ExtResource("1_nggpn")
-tooltip_text = "AXE"
+icon = ExtResource("1_6lq35")
+card_text = "Deal 6 Damage"
+card_name = "Punch"

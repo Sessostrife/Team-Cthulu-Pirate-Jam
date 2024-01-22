@@ -9,10 +9,6 @@ extends Node2D
 
 
 func _ready()->void:
-	#Noramally we would do thi on a run
-	#level so we keep ou health/deck
-	#between battles
-	#var new_stats: CharacterStats = char_stats.create_instance()
 	battle_ui.char_stats = global.character
 	player.stats = global.character
 	

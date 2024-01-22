@@ -16,7 +16,7 @@ func _input(event):
 		self.hide()
 
 		
-func _process(delta):
+func _process(_delta):
 	pass
 
 

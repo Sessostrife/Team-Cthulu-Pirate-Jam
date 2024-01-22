@@ -13,7 +13,7 @@ func _input(event):
 	if event.is_action_pressed("Pause"):
 		options.release_focus()
 	
-func _process(delta):
+func _process(_delta):
 	pass
 
 

@@ -12,8 +12,8 @@ enum Target {SELF, SINGLE_ENEMY, ALL_ENEMIES, EVERYONE}
 
 @export_group("Card Visuals")
 @export var icon: Texture
-@export_multiline var tooltip_text: String
-
+@export_multiline var card_text: String
+@export var card_name: String
 
 func is_single_targeted()->bool:
 	return target == Target.SINGLE_ENEMY

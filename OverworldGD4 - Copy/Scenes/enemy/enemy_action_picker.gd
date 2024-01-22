@@ -4,7 +4,7 @@ extends Node
 @export var enemy: Enemy: set = _set_enemy
 @export var target: Node2D: set = _set_target
 
-@onready var total_weight :=0
+@onready var total_weight := 0.0
 
 
 func _ready()->void:
@@ -56,7 +56,7 @@ func setup_chances()->void:
 		action = child as EnemyAction
 		if not action or action.type != EnemyAction.Type.CHANCE_BASED:
 			continue
-	
+			
 		total_weight += action.change_weight
 		action.accumulated_weight = total_weight
 

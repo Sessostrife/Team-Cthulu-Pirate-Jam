@@ -17,11 +17,11 @@ config/icon="res://Assets/IdleBlue1.png"
 
 [autoload]
 
-DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 global="*res://Scripts/Global.gd"
 Transit="*res://addons/transit/Transit.tscn"
 Events="*res://global/events.gd"
 Shaker="*res://global/shaker.gd"
+DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 
 [dialogue_manager]
 

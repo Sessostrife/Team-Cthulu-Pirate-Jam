@@ -93,6 +93,8 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_a4hbn")
 text = "Main menu"
 
 [node name="Settings" parent="." instance=ExtResource("3_3xo1e")]
+light_mask = 9
+visibility_layer = 9
 layout_mode = 1
 offset_left = 184.0
 offset_top = 65.0

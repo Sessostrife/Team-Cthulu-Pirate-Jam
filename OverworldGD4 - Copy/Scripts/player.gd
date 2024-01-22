@@ -5,7 +5,7 @@ var current_dir = "d"
 const speed = 100
 @onready var actionable_finder: Area2D = $Direction/ActionableFinder
 
-func _unhandled_input(event: InputEvent) -> void:
+func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("interact"):
 		var actionables = actionable_finder.get_overlapping_areas()
 		if actionables.size() > 0 and global.current_state_player != "menu":
@@ -28,7 +28,7 @@ func _physics_process(delta):
 	if global.current_state_player == "walking":
 		player_movement(delta)
 	
-func player_movement(delta):
+func player_movement(_delta):
 	
 	if Input.is_action_pressed("up"):
 		$Direction.rotation = 135
