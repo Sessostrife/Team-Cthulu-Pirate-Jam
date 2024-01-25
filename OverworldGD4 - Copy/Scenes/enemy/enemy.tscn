@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://b1ga5ssrfrlur"]
 
 [ext_resource type="Script" path="res://Scenes/enemy/enemy.gd" id="1_rwnhv"]
-[ext_resource type="Resource" uid="uid://borvds3kc3ndn" path="res://enemies/crab/crab_enemy.tres" id="2_w1uo7"]
+[ext_resource type="Resource" uid="uid://borvds3kc3ndn" path="res://enemies/Texasred/Texas_red.tres" id="2_w1uo7"]
 [ext_resource type="PackedScene" uid="uid://doaqky1bbwguo" path="res://Scenes/ui/stats_ui.tscn" id="3_1i06f"]
 [ext_resource type="Texture2D" uid="uid://dep2s7o013y6r" path="res://art/texas_red.png" id="3_neal5"]
 [ext_resource type="Texture2D" uid="uid://cccy7wnlu6mi7" path="res://art/arrow2.png" id="3_nv61a"]

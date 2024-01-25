@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=3 uid="uid://ibr8muivqslt"]
 
 [ext_resource type="Script" path="res://Scenes/enemy/enemy_action_picker.gd" id="1_vo2q1"]
-[ext_resource type="Script" path="res://enemies/crab/crab_attack_action.gd" id="1_wva48"]
-[ext_resource type="Script" path="res://enemies/crab/crab_block_action.gd" id="2_v6ffu"]
-[ext_resource type="Script" path="res://enemies/crab/crab_mega_block_action.gd" id="3_eop3w"]
+[ext_resource type="Script" path="res://enemies/Texasred/Texas_red_attack.gd" id="1_wva48"]
+[ext_resource type="Script" path="res://enemies/Texasred/Texas_red_block.gd" id="2_v6ffu"]
+[ext_resource type="Script" path="res://enemies/Texasred/Texas_red_special.gd" id="3_eop3w"]
 [ext_resource type="Texture2D" uid="uid://cccy7wnlu6mi7" path="res://art/arrow2.png" id="3_in2el"]
 [ext_resource type="Script" path="res://custom_resources/intent.gd" id="4_265cn"]
 [ext_resource type="Texture2D" uid="uid://cqd26ai70o37d" path="res://art/block.png" id="6_ibpad"]
@@ -28,6 +28,7 @@ script = ExtResource("1_vo2q1")
 
 [node name="AttackAction" type="Node" parent="."]
 script = ExtResource("1_wva48")
+damage = 2
 intent = SubResource("Resource_al0re")
 type = 1
 change_weight = 1.0

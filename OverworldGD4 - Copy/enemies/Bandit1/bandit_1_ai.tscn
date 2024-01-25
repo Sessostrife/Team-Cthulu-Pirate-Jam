@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://bu27wyd0mqgav"]
+
+[ext_resource type="Script" path="res://Scenes/enemy/enemy_action_picker.gd" id="1_x8q28"]
+[ext_resource type="Script" path="res://enemies/Bandit1/bandit_1_attack_action.gd" id="2_nefam"]
+[ext_resource type="Script" path="res://enemies/Bandit1/bandit_1_block_action.gd" id="3_wfgkx"]
+[ext_resource type="Script" path="res://enemies/Bandit1/bandit_1_special.gd" id="4_08pl7"]
+
+[node name="Bandint1" type="Node"]
+script = ExtResource("1_x8q28")
+
+[node name="AttackAction" type="Node" parent="."]
+script = ExtResource("2_nefam")
+damage = 3
+type = 1
+change_weight = 1.0
+
+[node name="BlockAction" type="Node" parent="."]
+script = ExtResource("3_wfgkx")
+block = 4
+type = 1
+change_weight = 1.0
+
+[node name="MegaBlockAction" type="Node" parent="."]
+script = ExtResource("4_08pl7")

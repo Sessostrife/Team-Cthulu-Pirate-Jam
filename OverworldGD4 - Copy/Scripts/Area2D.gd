@@ -13,4 +13,4 @@ func _process(_delta):
 
 func _on_body_entered(body):
 	if body.is_in_group("Player"):
-		Transit.change_scene_to_file("res://Scenes/Battle/Battle.tscn")
+		Transit.change_scene_to_file("res://Scenes/Battle/battle1/Battle.tscn")

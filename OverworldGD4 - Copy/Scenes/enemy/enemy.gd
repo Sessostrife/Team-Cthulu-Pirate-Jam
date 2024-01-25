@@ -33,7 +33,7 @@ func set_enemy_stats(value: EnemyStats)->void:
 
 func setup_ai()->void:
 	if enemy_action_picker:
-		enemy_action_picker.queue.free()
+		enemy_action_picker.queue_free()
 		
 	var new_action_picker: EnemyActionPicker = stats.ai.instantiate()
 	add_child(new_action_picker)
