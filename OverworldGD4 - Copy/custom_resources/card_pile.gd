@@ -19,8 +19,11 @@ func draw_card()->Card:
 func add_card(card:Card):
 	cards.append(card)
 	card_pile_size_changed.emit(cards.size())
-	
-	
+	print("1")
+
+func remove_card(index: int)->void:
+	cards.remove_at(index)
+	print("2")
 func shuffle()->void:
 	cards.shuffle()
 
@@ -36,7 +39,6 @@ func _to_string()->String:
 		_card_strings.append("%s: %s" % [i+1, cards[i].id])
 	return "\n".join(_card_strings)
 
-func size()->int:
-	if empty(): 
-		return 0
-	return 0
+
+func choose_random()->Card:
+	return cards[randi_range(0,(cards.size()-1))]

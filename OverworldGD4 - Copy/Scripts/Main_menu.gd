@@ -19,8 +19,8 @@ func _process(_delta):
 
 func _on_play_pressed():
 	global.character = char_stats.create_instance()
-	
-	Transit.change_scene_to_file("res://Scenes/world.tscn")
+	global.cards = load("res://characters/allcards.tres")
+	Transit.change_scene_to_file("res://Rewardscreen.tscn")
 	global.overworld_active = true
 	if play.has_focus():
 		play.release_focus()

@@ -48,11 +48,7 @@ func draw_deck(amount: int)-> void:
 	var tween := create_tween()
 	for i in range(amount):
 		tween.tween_callback(draw_many)
-		tween.tween_interval(HAND_DRAW_INTERVAL)
-		
-	tween.finished.connect(
-		func(): Events.player_hand_drawn.emit()
-	)
+	
 	
 func draw_cards(amount: int)->void:
 	var tween := create_tween()
@@ -97,5 +93,6 @@ func _on_show_decklist_pressed():
 	character.draw_pile = character.deck.duplicate(true)
 	character.discard = CardPile.new()
 	draw_deck(10)
-	for card in get_children():
+	for card in %Hand2.get_children():
 		card.disabled = true
+	$ShowDecklist.disabled = true

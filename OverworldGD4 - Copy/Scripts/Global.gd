@@ -6,4 +6,6 @@ var overworld_active = false
 var options_menu = false
 var active_scene = ""
 var character : CharacterStats
-var kills : int
+var trade : int = 0
+var cards : CardPile
+
