@@ -39,3 +39,6 @@ func create_instance()->Resource:
 	instance.draw_pile = CardPile.new()
 	instance.discard = CardPile.new()
 	return instance
+
+func size()->int:
+	return 0

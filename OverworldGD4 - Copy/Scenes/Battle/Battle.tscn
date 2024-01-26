@@ -41,7 +41,7 @@ debug_color = Color(0, 0.6, 0.701961, 0.0666667)
 script = ExtResource("4_sdwvh")
 
 [node name="Enemy" parent="EnemyHandler" instance=ExtResource("2_dpy4l")]
-position = Vector2(382, 139)
+position = Vector2(387, 138)
 scale = Vector2(0.75, 0.75)
 
 [node name="Player" parent="." instance=ExtResource("8_vau2o")]

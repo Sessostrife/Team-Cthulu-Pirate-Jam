@@ -5,6 +5,7 @@ const HAND_DRAW_INTERVAL := .25
 const HAND_DISCARD_INTERVAL :=.25
 
 @export var hand: Hand
+@export var hand2: Hand2
 
 var character: CharacterStats
 
@@ -32,10 +33,26 @@ func end_turn()->void:
 	discard_cards()
 	
 	
+func draw_many()-> void:
+	reshuffle_deck_from_discard()
+	hand2.add_card(character.draw_pile.draw_card())
+	reshuffle_deck_from_discard()
+	
 func draw_card()-> void:
 	reshuffle_deck_from_discard()
 	hand.add_card(character.draw_pile.draw_card())
 	reshuffle_deck_from_discard()
+	
+	
+func draw_deck(amount: int)-> void:
+	var tween := create_tween()
+	for i in range(amount):
+		tween.tween_callback(draw_many)
+		tween.tween_interval(HAND_DRAW_INTERVAL)
+		
+	tween.finished.connect(
+		func(): Events.player_hand_drawn.emit()
+	)
 	
 func draw_cards(amount: int)->void:
 	var tween := create_tween()
@@ -74,3 +91,11 @@ func reshuffle_deck_from_discard()->void :
 
 func _on_card_played(card:Card)->void:
 	character.discard.add_card(card)
+
+func _on_show_decklist_pressed():
+	character = global.character
+	character.draw_pile = character.deck.duplicate(true)
+	character.discard = CardPile.new()
+	draw_deck(10)
+	for card in get_children():
+		card.disabled = true

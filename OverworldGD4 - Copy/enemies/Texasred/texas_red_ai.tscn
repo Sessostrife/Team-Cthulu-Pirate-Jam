@@ -4,14 +4,14 @@
 [ext_resource type="Script" path="res://enemies/Texasred/Texas_red_attack.gd" id="1_wva48"]
 [ext_resource type="Script" path="res://enemies/Texasred/Texas_red_block.gd" id="2_v6ffu"]
 [ext_resource type="Script" path="res://enemies/Texasred/Texas_red_special.gd" id="3_eop3w"]
-[ext_resource type="Texture2D" uid="uid://cccy7wnlu6mi7" path="res://art/arrow2.png" id="3_in2el"]
+[ext_resource type="Texture2D" uid="uid://boh04bhejvb4g" path="res://art/attack_intent.png" id="3_hl35h"]
 [ext_resource type="Script" path="res://custom_resources/intent.gd" id="4_265cn"]
 [ext_resource type="Texture2D" uid="uid://cqd26ai70o37d" path="res://art/block.png" id="6_ibpad"]
 
 [sub_resource type="Resource" id="Resource_al0re"]
 script = ExtResource("4_265cn")
-number = "7"
-icon = ExtResource("3_in2el")
+number = "2"
+icon = ExtResource("3_hl35h")
 
 [sub_resource type="Resource" id="Resource_bejc4"]
 script = ExtResource("4_265cn")

@@ -8,7 +8,7 @@ const DRAG_STYLEBOX :=preload("res://Scenes/card_ui/card_draging_stylebox.tres")
 const HOVER_STYLEBOX :=preload("res://Scenes/card_ui/card_hover_stylebox.tres")
 
 @export var card: Card : set = _set_card
-@export var char_stats: CharacterStats : set = _set_char_stats
+@export var char_stats: CharacterStats = global.character#_set_char_stats
 
 @onready var panel = $Panel
 @onready var cost = $Cost
@@ -83,9 +83,9 @@ func _set_playable(value:bool)-> void:
 		cost.remove_theme_color_override("font_color")
 		icon.modulate = Color(1,1,1,1)
 	
-	
-func _set_char_stats(value: CharacterStats) ->void:
-	char_stats = value
+	##value: CharacterStats##
+func _set_char_stats() ->void:
+	char_stats = global.character
 	char_stats.stats_changed.connect(_on_char_stats_changed)
 	
 	

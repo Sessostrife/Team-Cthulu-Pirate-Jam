@@ -35,3 +35,8 @@ func _to_string()->String:
 	for i in range(cards.size()):
 		_card_strings.append("%s: %s" % [i+1, cards[i].id])
 	return "\n".join(_card_strings)
+
+func size()->int:
+	if empty(): 
+		return 0
+	return 0
