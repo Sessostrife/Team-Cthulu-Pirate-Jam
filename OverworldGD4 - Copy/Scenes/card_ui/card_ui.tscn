@@ -84,6 +84,7 @@ offset_right = 36.0
 offset_bottom = 27.0
 grow_horizontal = 2
 grow_vertical = 0
+autowrap_mode = 2
 
 [node name="Cardname" type="Label" parent="."]
 layout_mode = 0

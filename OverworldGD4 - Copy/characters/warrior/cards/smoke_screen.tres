@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cf7abaeo3jdxm"]
+
+[ext_resource type="Texture2D" uid="uid://bj0aaahntfs2f" path="res://art/smoke_screen.png" id="1_aa3by"]
+[ext_resource type="Script" path="res://characters/warrior/cards/smoke_screen.gd" id="2_eyuvp"]
+
+[resource]
+script = ExtResource("2_eyuvp")
+id = ""
+type = 0
+target = 0
+cost = 2
+icon = ExtResource("1_aa3by")
+card_text = "Gain 7 block, do not lose block this turn"
+card_name = "Smoke Screen"

@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://cnup8os8x7wph"]
+[gd_scene load_steps=7 format=3 uid="uid://cnup8os8x7wph"]
 
+[ext_resource type="Texture2D" uid="uid://cm73vxkdko6m8" path="res://art/reward_BG.png" id="1_7l8uj"]
 [ext_resource type="Script" path="res://RewardHandler.gd" id="1_bin3i"]
 [ext_resource type="Script" path="res://Scenes/Hand2.gd" id="2_mushq"]
 [ext_resource type="Script" path="res://Scenes/ui/hand.gd" id="3_2gh7q"]
@@ -13,6 +14,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 479.0
+offset_bottom = 300.0
+texture = ExtResource("1_7l8uj")
 
 [node name="PlayerHandler" type="Node" parent="." node_paths=PackedStringArray("hand2")]
 script = ExtResource("1_bin3i")

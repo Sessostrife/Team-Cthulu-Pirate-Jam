@@ -1,16 +1,18 @@
 extends EnemyAction
 
-@export var block :=6
-
+func is_performable()->bool:
+	if not enemy:
+		return false
+	
+	if enemy.stats.stun:
+		return true
+	return false
+	
+	
 func perform_action()->void:
 	if not enemy or not target:
 		return
-		
-	
-	var block_effect:= BlockEffect.new()
-	block_effect.amount = block
-	block_effect.execute([enemy])
-	
+	enemy.stats.stun = false
 	get_tree().create_timer(.6, false).timeout.connect(
 		func():
 			Events.enemy_action_completed.emit(enemy)

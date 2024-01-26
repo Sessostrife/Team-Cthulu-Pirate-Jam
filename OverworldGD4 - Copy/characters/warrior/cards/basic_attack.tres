@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dydta7w84jb5h"]
+
+[ext_resource type="Texture2D" uid="uid://c0o1tirpx7g17" path="res://art/strike.png" id="1_aoeyx"]
+[ext_resource type="Script" path="res://characters/warrior/cards/basic_attack.gd" id="2_j18xk"]
+
+[resource]
+script = ExtResource("2_j18xk")
+id = ""
+type = 0
+target = 1
+cost = 1
+icon = ExtResource("1_aoeyx")
+card_text = "Deal 3 Damage"
+card_name = "Punch"

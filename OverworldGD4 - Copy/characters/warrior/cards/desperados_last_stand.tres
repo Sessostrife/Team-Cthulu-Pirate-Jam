@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cwjt40en27ed2"]
+
+[ext_resource type="Texture2D" uid="uid://dlsfcdr5ywsbx" path="res://art/Desperado's_last_stand.png" id="1_1lm6w"]
+[ext_resource type="Script" path="res://characters/warrior/cards/desperados_last_stand.gd" id="2_xoctk"]
+
+[resource]
+script = ExtResource("2_xoctk")
+id = ""
+type = 0
+target = 1
+cost = 2
+icon = ExtResource("1_1lm6w")
+card_text = "Deal 2 damage, increased to 10 if under 25% health"
+card_name = "Desperado"

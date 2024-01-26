@@ -4,7 +4,7 @@ extends Node2D
 
 func _ready()->void:
 	Events.enemy_action_completed.connect(_on_enemy_action_completed)
-	
+	#Events.stunned.connet(_on_enemy_stun)
 	
 func reset_enemy_actions()->void:
 	var enemy: Enemy
@@ -29,3 +29,6 @@ func _on_enemy_action_completed(enemy:Enemy)->void:
 		
 	var next_enemy: Enemy = get_child(enemy.get_index()+1) as Enemy
 	next_enemy.do_turn()
+
+#func _on_enemy_stun(targets: Array[Node])->void:
+	#targets.stats.stunned = true
