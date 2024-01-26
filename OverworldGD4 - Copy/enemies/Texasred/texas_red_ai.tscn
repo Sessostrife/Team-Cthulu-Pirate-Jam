@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ibr8muivqslt"]
+[gd_scene load_steps=14 format=3 uid="uid://ibr8muivqslt"]
 
 [ext_resource type="Script" path="res://Scenes/enemy/enemy_action_picker.gd" id="1_vo2q1"]
 [ext_resource type="Script" path="res://enemies/Texasred/Texas_red_attack.gd" id="1_wva48"]
@@ -6,7 +6,10 @@
 [ext_resource type="Script" path="res://enemies/Texasred/Texas_red_special.gd" id="3_eop3w"]
 [ext_resource type="Texture2D" uid="uid://boh04bhejvb4g" path="res://art/attack_intent.png" id="3_hl35h"]
 [ext_resource type="Script" path="res://custom_resources/intent.gd" id="4_265cn"]
+[ext_resource type="Script" path="res://enemies/Texasred/Texas_red_attack2.gd" id="5_838kn"]
+[ext_resource type="Script" path="res://enemies/Texasred/Texas_red_attack3.gd" id="6_6gg1m"]
 [ext_resource type="Texture2D" uid="uid://cqd26ai70o37d" path="res://art/block.png" id="6_ibpad"]
+[ext_resource type="Script" path="res://enemies/Bandit1/pass.gd" id="8_qqn84"]
 
 [sub_resource type="Resource" id="Resource_al0re"]
 script = ExtResource("4_265cn")
@@ -18,27 +21,38 @@ script = ExtResource("4_265cn")
 number = ""
 icon = ExtResource("6_ibpad")
 
-[sub_resource type="Resource" id="Resource_1uas1"]
+[sub_resource type="Resource" id="Resource_5bt00"]
 script = ExtResource("4_265cn")
-number = ""
-icon = ExtResource("6_ibpad")
+number = "\"15/5\""
 
 [node name="CrabEnemyAI" type="Node"]
 script = ExtResource("1_vo2q1")
 
-[node name="AttackAction" type="Node" parent="."]
+[node name="AttackAction1" type="Node" parent="."]
 script = ExtResource("1_wva48")
 damage = 2
 intent = SubResource("Resource_al0re")
 type = 1
+change_weight = 5.0
+
+[node name="AttackAction2" type="Node" parent="."]
+script = ExtResource("5_838kn")
 change_weight = 1.0
+
+[node name="AttackAction3" type="Node" parent="."]
+script = ExtResource("6_6gg1m")
+change_weight = 4.0
 
 [node name="BlockAction" type="Node" parent="."]
 script = ExtResource("2_v6ffu")
+block = 3
 intent = SubResource("Resource_bejc4")
 type = 1
 change_weight = 1.0
 
-[node name="MegaBlockAction" type="Node" parent="."]
+[node name="RedSpecial" type="Node" parent="."]
 script = ExtResource("3_eop3w")
-intent = SubResource("Resource_1uas1")
+intent = SubResource("Resource_5bt00")
+
+[node name="Pass" type="Node" parent="."]
+script = ExtResource("8_qqn84")

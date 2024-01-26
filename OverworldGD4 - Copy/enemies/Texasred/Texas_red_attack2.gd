@@ -1,6 +1,6 @@
 extends EnemyAction
 
-@export var damage := 3
+@export var damage := 10
 
 
 func perform_action()->void:
