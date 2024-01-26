@@ -1,0 +1,44 @@
+[gd_scene load_steps=11 format=3 uid="uid://cj74ui3ndbjeb"]
+
+[ext_resource type="Script" path="res://Scenes/enemy/enemy_action_picker.gd" id="1_ub7m7"]
+[ext_resource type="Script" path="res://enemies/Texasred/Texas_red_attack.gd" id="2_futst"]
+[ext_resource type="Texture2D" uid="uid://boh04bhejvb4g" path="res://art/attack_intent.png" id="3_o7pgk"]
+[ext_resource type="Script" path="res://custom_resources/intent.gd" id="4_633nj"]
+[ext_resource type="Script" path="res://enemies/Texasred/Texas_red_block.gd" id="5_k1gu4"]
+[ext_resource type="Texture2D" uid="uid://cqd26ai70o37d" path="res://art/block.png" id="6_6cvb5"]
+[ext_resource type="Script" path="res://enemies/Texasred/Texas_red_special.gd" id="7_oqrfw"]
+
+[sub_resource type="Resource" id="Resource_al0re"]
+script = ExtResource("4_633nj")
+number = "7"
+icon = ExtResource("3_o7pgk")
+
+[sub_resource type="Resource" id="Resource_bejc4"]
+script = ExtResource("4_633nj")
+number = ""
+icon = ExtResource("6_6cvb5")
+
+[sub_resource type="Resource" id="Resource_1uas1"]
+script = ExtResource("4_633nj")
+number = ""
+icon = ExtResource("6_6cvb5")
+
+[node name="CrabEnemyAI" type="Node"]
+script = ExtResource("1_ub7m7")
+
+[node name="AttackAction" type="Node" parent="."]
+script = ExtResource("2_futst")
+damage = 2
+intent = SubResource("Resource_al0re")
+type = 1
+change_weight = 1.0
+
+[node name="BlockAction" type="Node" parent="."]
+script = ExtResource("5_k1gu4")
+intent = SubResource("Resource_bejc4")
+type = 1
+change_weight = 1.0
+
+[node name="MegaBlockAction" type="Node" parent="."]
+script = ExtResource("7_oqrfw")
+intent = SubResource("Resource_1uas1")

@@ -1,0 +1,125 @@
+[gd_scene load_steps=17 format=3 uid="uid://dg8evfxvflq78"]
+
+[ext_resource type="Script" path="res://Scenes/Battle/Battle.gd" id="1_n5nkh"]
+[ext_resource type="Resource" uid="uid://c8caf46kv4lpb" path="res://characters/warrior/warrior.tres" id="2_ywjmr"]
+[ext_resource type="Texture2D" uid="uid://duhynmj57b8yt" path="res://art/BG_art.png" id="3_1x4ak"]
+[ext_resource type="Script" path="res://Scenes/enemy/enemy_handler.gd" id="4_lsfkj"]
+[ext_resource type="PackedScene" uid="uid://b1ga5ssrfrlur" path="res://Scenes/enemy/enemy.tscn" id="5_gvmxc"]
+[ext_resource type="PackedScene" uid="uid://bi2wyf4b4bh2s" path="res://Scenes/player/player.tscn" id="6_mwlio"]
+[ext_resource type="PackedScene" uid="uid://dg5scci3ikw0q" path="res://Scenes/card_target_selector/card_target_selector.tscn" id="7_i1pqw"]
+[ext_resource type="Script" path="res://Scenes/player/player_handler.gd" id="8_1gk0o"]
+[ext_resource type="Script" path="res://Scenes/ui/battle_ui.gd" id="9_qv332"]
+[ext_resource type="Script" path="res://Scenes/ui/hand.gd" id="10_75ynv"]
+[ext_resource type="PackedScene" uid="uid://candu5jkvex67" path="res://Scenes/card_ui/mana_ui.tscn" id="11_u7sr6"]
+[ext_resource type="PackedScene" uid="uid://buep21yky3l5i" path="res://Scenes/ui/tooltip.tscn" id="12_w262a"]
+[ext_resource type="Theme" uid="uid://d1g4bjj180ctf" path="res://maintheme.tres" id="13_8fcqm"]
+[ext_resource type="PackedScene" uid="uid://ctmnx2r2g6xk6" path="res://Scenes/Pause.tscn" id="14_0gi8y"]
+[ext_resource type="Script" path="res://Scenes/ui/red_flash.gd" id="15_vcw81"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sh57a"]
+size = Vector2(480, 200)
+
+[node name="Battle" type="Node2D"]
+script = ExtResource("1_n5nkh")
+char_stats = ExtResource("2_ywjmr")
+
+[node name="Background" type="Sprite2D" parent="."]
+modulate = Color(0.501961, 0.478431, 0.478431, 1)
+position = Vector2(254, 109)
+scale = Vector2(1.71115, 1.19667)
+texture = ExtResource("3_1x4ak")
+
+[node name="CardDropArea" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardDropArea"]
+position = Vector2(240, 100)
+shape = SubResource("RectangleShape2D_sh57a")
+debug_color = Color(0, 0.6, 0.701961, 0.0666667)
+
+[node name="EnemyHandler" type="Node2D" parent="."]
+script = ExtResource("4_lsfkj")
+
+[node name="Enemy" parent="EnemyHandler" instance=ExtResource("5_gvmxc")]
+position = Vector2(362, 137)
+scale = Vector2(0.75, 0.75)
+
+[node name="Player" parent="." instance=ExtResource("6_mwlio")]
+position = Vector2(17, 62)
+scale = Vector2(0.8, 0.8)
+stats = ExtResource("2_ywjmr")
+
+[node name="CardTargetSelector" parent="." instance=ExtResource("7_i1pqw")]
+
+[node name="PlayerHandler" type="Node" parent="." node_paths=PackedStringArray("hand")]
+script = ExtResource("8_1gk0o")
+hand = NodePath("../BattleUI/Hand")
+
+[node name="BattleUI" type="CanvasLayer" parent="." groups=["ui_layer"]]
+script = ExtResource("9_qv332")
+
+[node name="Hand" type="HBoxContainer" parent="BattleUI"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -60.0
+offset_right = 100.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_stretch_ratio = 3.0
+alignment = 1
+script = ExtResource("10_75ynv")
+
+[node name="ManaUI" parent="BattleUI" instance=ExtResource("11_u7sr6")]
+offset_left = 20.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = -20.0
+char_stats = ExtResource("2_ywjmr")
+
+[node name="Tooltip" parent="BattleUI" instance=ExtResource("12_w262a")]
+visible = false
+offset_top = 9.0
+offset_bottom = 77.0
+
+[node name="EndTurnButton" type="Button" parent="BattleUI"]
+unique_name_in_owner = true
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -55.0
+offset_top = -29.0
+offset_right = -10.0
+offset_bottom = -12.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("13_8fcqm")
+text = "End Turn"
+
+[node name="Pause" parent="BattleUI" instance=ExtResource("14_0gi8y")]
+offset_left = 425.0
+offset_top = 241.0
+offset_right = 425.0
+offset_bottom = 241.0
+
+[node name="RedFlash" type="CanvasLayer" parent="."]
+layer = 2
+script = ExtResource("15_vcw81")
+
+[node name="ColorRect" type="ColorRect" parent="RedFlash"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 0.443137, 0.443137, 0)
+
+[node name="Timer" type="Timer" parent="RedFlash"]
+wait_time = 0.1
+one_shot = true
