@@ -7,11 +7,12 @@ const HAND_DISCARD_INTERVAL :=.25
 @export var hand: Hand
 @export var hand2: Hand2
 
+var hold: bool = false
 var character: CharacterStats
-
 
 func _ready()->void:
 	Events.card_played.connect(_on_card_played)
+	Events.hold.connect(_change_hold)
 	
 	
 func start_battle(char_stats: CharacterStats)-> void:
@@ -23,7 +24,11 @@ func start_battle(char_stats: CharacterStats)-> void:
 	
 	
 func start_turn()->void:
-	character.block = 0
+	if hold:
+		hold = false
+		print("2")
+	else:
+		character.block = 0
 	character.reset_mana()
 	draw_cards(character.cards_per_turn)
 	
@@ -96,3 +101,7 @@ func _on_show_decklist_pressed():
 	for card in %Hand2.get_children():
 		card.disabled = true
 	$ShowDecklist.disabled = true
+
+func _change_hold()->void:
+	print("?")
+	hold = true

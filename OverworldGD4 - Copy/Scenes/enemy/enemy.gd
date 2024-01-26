@@ -93,6 +93,8 @@ func take_damage(damage:int)->void:
 				queue_free()
 	)
 
+func stun_me()->void:
+	stats.stun = true
 
 func _on_area_entered(_area: Area2D)->void:
 	arrow.show()

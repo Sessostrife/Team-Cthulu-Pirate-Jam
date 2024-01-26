@@ -8,7 +8,6 @@ func _ready():
 	Events.card_played.connect(_on_card_played)
 	character = global.character
 	character.draw_pile = character.deck.duplicate(true)
-	character.draw_pile.shuffle()
 	character.discard = CardPile.new()
 	draw_deck(10)
 	rewards = [reward_card(), reward_card()]
@@ -23,14 +22,14 @@ func reward_card()->Card:
 func switch_cards()->bool:
 	if playercard == -1 or reward == -1:
 		return false
-	global.character.starting_deck.remove_card(playercard)
-	global.character.starting_deck.add_card(rewards[reward])
+	global.character.deck.remove_card(playercard)
+	global.character.deck.add_card(rewards[reward])
 	return true
 
 
 func _on_swap_pressed():
 	switch_cards()
-	Transit.change_scene_to_file("res://Scenes/Battle/Redbattle/Battle.tscn")
+	Transit.change_scene_to_file("res://Scenes/Battle/Battle1/Battle.tscn")
 
 func _on_card_0_pressed():
 	playercard = 0

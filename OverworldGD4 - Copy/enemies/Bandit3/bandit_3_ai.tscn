@@ -6,7 +6,8 @@
 [ext_resource type="Script" path="res://custom_resources/intent.gd" id="4_aomho"]
 [ext_resource type="Script" path="res://enemies/Texasred/Texas_red_block.gd" id="5_1kb16"]
 [ext_resource type="Texture2D" uid="uid://cqd26ai70o37d" path="res://art/block.png" id="6_nftxr"]
-[ext_resource type="Script" path="res://enemies/Texasred/Texas_red_special.gd" id="7_on5xa"]
+[ext_resource type="Script" path="res://enemies/Bandit3/bandit_3_special.gd" id="7_6nwkl"]
+[ext_resource type="Script" path="res://enemies/Bandit1/pass.gd" id="8_ssl33"]
 
 [sub_resource type="Resource" id="Resource_al0re"]
 script = ExtResource("4_aomho")
@@ -14,11 +15,6 @@ number = "7"
 icon = ExtResource("3_vchmy")
 
 [sub_resource type="Resource" id="Resource_bejc4"]
-script = ExtResource("4_aomho")
-number = ""
-icon = ExtResource("6_nftxr")
-
-[sub_resource type="Resource" id="Resource_1uas1"]
 script = ExtResource("4_aomho")
 number = ""
 icon = ExtResource("6_nftxr")
@@ -31,14 +27,16 @@ script = ExtResource("2_umjmw")
 damage = 2
 intent = SubResource("Resource_al0re")
 type = 1
-change_weight = 1.0
+change_weight = 8.0
 
 [node name="BlockAction" type="Node" parent="."]
 script = ExtResource("5_1kb16")
 intent = SubResource("Resource_bejc4")
 type = 1
-change_weight = 1.0
+change_weight = 2.0
 
-[node name="MegaBlockAction" type="Node" parent="."]
-script = ExtResource("7_on5xa")
-intent = SubResource("Resource_1uas1")
+[node name="Bandit3_special" type="Node" parent="."]
+script = ExtResource("7_6nwkl")
+
+[node name="Pass" type="Node" parent="."]
+script = ExtResource("8_ssl33")

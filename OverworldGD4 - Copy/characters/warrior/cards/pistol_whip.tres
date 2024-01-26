@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dhf6i8i5j5o1h"]
+
+[ext_resource type="Script" path="res://characters/warrior/cards/pistol_whip.gd" id="1_1brxh"]
+[ext_resource type="Texture2D" uid="uid://dhwlhvgilov4m" path="res://art/pistol_whip.png" id="1_6y3sp"]
+
+[resource]
+script = ExtResource("1_1brxh")
+id = ""
+type = 0
+target = 1
+cost = 1
+icon = ExtResource("1_6y3sp")
+card_text = "Deal 2 Damage and stun enemy for one turn"
+card_name = "Pistol Whip"

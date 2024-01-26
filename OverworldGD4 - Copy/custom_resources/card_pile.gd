@@ -23,7 +23,9 @@ func add_card(card:Card):
 
 func remove_card(index: int)->void:
 	cards.remove_at(index)
-	print("2")
+	print("3")
+
+
 func shuffle()->void:
 	cards.shuffle()
 

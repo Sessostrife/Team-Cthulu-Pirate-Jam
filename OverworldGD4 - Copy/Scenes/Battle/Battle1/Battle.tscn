@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://06jhcrdgnxex"]
+[gd_scene load_steps=19 format=3 uid="uid://06jhcrdgnxex"]
 
 [ext_resource type="Script" path="res://Scenes/Battle/Battle.gd" id="1_tj0l8"]
 [ext_resource type="Resource" uid="uid://c8caf46kv4lpb" path="res://characters/warrior/warrior.tres" id="2_a5peo"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bi2wyf4b4bh2s" path="res://Scenes/player/player.tscn" id="6_gpk5a"]
 [ext_resource type="Resource" uid="uid://f5b2dmm11483" path="res://enemies/Bandit1/bandit_1.tres" id="6_n4e35"]
 [ext_resource type="PackedScene" uid="uid://dg5scci3ikw0q" path="res://Scenes/card_target_selector/card_target_selector.tscn" id="7_h067o"]
+[ext_resource type="Resource" uid="uid://dkfnd7ys7wkye" path="res://enemies/Bandit2/bandit_2.tres" id="7_oflov"]
 [ext_resource type="Script" path="res://Scenes/player/player_handler.gd" id="8_vrjct"]
 [ext_resource type="Script" path="res://Scenes/ui/battle_ui.gd" id="9_3ctjk"]
 [ext_resource type="Script" path="res://Scenes/ui/hand.gd" id="10_xluqx"]
@@ -42,18 +43,23 @@ debug_color = Color(0, 0.6, 0.701961, 0.0666667)
 script = ExtResource("4_xuv5b")
 
 [node name="Enemy" parent="EnemyHandler" instance=ExtResource("5_g4igx")]
-position = Vector2(382, 139)
+position = Vector2(422, 109)
 scale = Vector2(0.75, 0.75)
 stats = ExtResource("6_n4e35")
 
+[node name="Enemy2" parent="EnemyHandler" instance=ExtResource("5_g4igx")]
+position = Vector2(307, 109)
+scale = Vector2(0.75, 0.75)
+stats = ExtResource("7_oflov")
+
 [node name="Player" parent="." instance=ExtResource("6_gpk5a")]
-position = Vector2(17, 62)
+position = Vector2(17, 39)
 scale = Vector2(0.8, 0.8)
 stats = ExtResource("2_a5peo")
 
 [node name="CardTargetSelector" parent="." instance=ExtResource("7_h067o")]
 
-[node name="PlayerHandler" type="Node" parent="." node_paths=PackedStringArray("hand")]
+[node name="PlayerHandler" type="Node" parent="." node_paths=PackedStringArray("hand") groups=["hold"]]
 script = ExtResource("8_vrjct")
 hand = NodePath("../BattleUI/Hand")
 

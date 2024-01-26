@@ -1,7 +1,7 @@
 extends EnemyAction
 
-@export var block :=15
-@export var hp_threshold :=6
+@export var heal :=10
+@export var hp_threshold :=5
 
 var already_used :=false
 
@@ -20,9 +20,7 @@ func perform_action()->void:
 	if not enemy or not target:
 		return
 		
-	var block_effect := BlockEffect.new()
-	block_effect.amount = block
-	block_effect.execute([enemy])
+	enemy.stats.heal(heal)
 	
 	get_tree().create_timer(.6, false).timeout.connect(
 		func():

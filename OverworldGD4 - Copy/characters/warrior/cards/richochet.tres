@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://baw1up6k5a5ep"]
+
+[ext_resource type="Texture2D" uid="uid://cc5sw61gu7nxg" path="res://art/richochet_shot.png" id="1_0pt3s"]
+[ext_resource type="Script" path="res://characters/warrior/cards/richochet.gd" id="1_52ywv"]
+
+[resource]
+script = ExtResource("1_52ywv")
+id = ""
+type = 0
+target = 2
+cost = 2
+icon = ExtResource("1_0pt3s")
+card_text = "Deal 5 Damage to each Enemy"
+card_name = "Richochet Shot"

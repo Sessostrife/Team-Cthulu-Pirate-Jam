@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bu27wyd0mqgav"]
+[gd_scene load_steps=12 format=3 uid="uid://bu27wyd0mqgav"]
 
 [ext_resource type="Script" path="res://Scenes/enemy/enemy_action_picker.gd" id="1_x8q28"]
 [ext_resource type="Script" path="res://enemies/Bandit1/bandit_1_attack_action.gd" id="2_nefam"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://enemies/Bandit1/bandit_1_special.gd" id="4_08pl7"]
 [ext_resource type="Script" path="res://custom_resources/intent.gd" id="4_fvbet"]
 [ext_resource type="Texture2D" uid="uid://cqd26ai70o37d" path="res://art/block.png" id="6_2u78o"]
+[ext_resource type="Script" path="res://enemies/Bandit1/pass.gd" id="8_7uvo1"]
 
 [sub_resource type="Resource" id="Resource_xdq6h"]
 script = ExtResource("4_fvbet")
@@ -15,7 +16,7 @@ icon = ExtResource("3_43law")
 
 [sub_resource type="Resource" id="Resource_6qy0f"]
 script = ExtResource("4_fvbet")
-number = ""
+number = "3"
 icon = ExtResource("6_2u78o")
 
 [sub_resource type="Resource" id="Resource_guviu"]
@@ -31,15 +32,17 @@ script = ExtResource("2_nefam")
 damage = 3
 intent = SubResource("Resource_xdq6h")
 type = 1
-change_weight = 1.0
+change_weight = 4.0
 
 [node name="BlockAction" type="Node" parent="."]
 script = ExtResource("3_wfgkx")
-block = 4
 intent = SubResource("Resource_6qy0f")
 type = 1
-change_weight = 1.0
+change_weight = 6.0
 
 [node name="MegaBlockAction" type="Node" parent="."]
 script = ExtResource("4_08pl7")
 intent = SubResource("Resource_guviu")
+
+[node name="Pass" type="Node" parent="."]
+script = ExtResource("8_7uvo1")

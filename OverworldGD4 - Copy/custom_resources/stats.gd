@@ -5,9 +5,11 @@ signal stats_changed
 
 @export var max_health :=1
 @export var art: Texture
+@export var stun: bool = false
 
 var health:int :set = set_health
 var block:int : set = set_block
+
 
 
 func set_health(value:int)->void:
@@ -38,3 +40,6 @@ func create_instance()->Resource:
 	instance.health = max_health
 	instance.block =0
 	return instance
+	
+func stun_me()->void:
+	stun = true
