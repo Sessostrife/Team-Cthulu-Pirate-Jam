@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ibr8muivqslt"]
+[gd_scene load_steps=15 format=3 uid="uid://ibr8muivqslt"]
 
 [ext_resource type="Script" path="res://Scenes/enemy/enemy_action_picker.gd" id="1_vo2q1"]
 [ext_resource type="Script" path="res://enemies/Texasred/Texas_red_attack.gd" id="1_wva48"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://enemies/Texasred/Texas_red_attack3.gd" id="6_6gg1m"]
 [ext_resource type="Texture2D" uid="uid://cqd26ai70o37d" path="res://art/block.png" id="6_ibpad"]
 [ext_resource type="Script" path="res://enemies/Bandit1/pass.gd" id="8_qqn84"]
+[ext_resource type="Texture2D" uid="uid://b7j2734a314tf" path="res://art/Block_attack.png" id="10_f4uvi"]
 
 [sub_resource type="Resource" id="Resource_al0re"]
 script = ExtResource("4_265cn")
@@ -24,6 +25,7 @@ icon = ExtResource("6_ibpad")
 [sub_resource type="Resource" id="Resource_5bt00"]
 script = ExtResource("4_265cn")
 number = "\"15/5\""
+icon = ExtResource("10_f4uvi")
 
 [node name="CrabEnemyAI" type="Node"]
 script = ExtResource("1_vo2q1")
