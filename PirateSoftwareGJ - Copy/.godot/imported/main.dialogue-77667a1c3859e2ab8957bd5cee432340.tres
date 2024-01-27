@@ -1,0 +1,415 @@
+[gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_4ta36"]
+
+[resource]
+script = ExtResource("1_4ta36")
+using_states = PackedStringArray()
+titles = {
+"pick_key": "22",
+"start": "2"
+}
+character_names = PackedStringArray("Officer", "Ranger", "Ranger\'s thoughts", "Sherrif")
+first_title = "2"
+lines = {
+"1": {
+"id": "1",
+"next_id": "2",
+"text": "start",
+"type": "title"
+},
+"10": {
+"id": "10",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "key_status"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "gave"
+}])
+},
+"next_id": "11",
+"parent_id": "8",
+"type": "mutation"
+},
+"11": {
+"character": "Officer",
+"character_replacements": Array[Dictionary]([]),
+"id": "11",
+"next_id": "12",
+"parent_id": "8",
+"tags": PackedStringArray(),
+"text": "Welcome ranger, please help us clear the saloon from the bandits.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Welcome ranger, please help us clear the saloon from the bandits.",
+"type": "dialogue"
+},
+"12": {
+"character": "Ranger",
+"character_replacements": Array[Dictionary]([]),
+"id": "12",
+"next_id": "13",
+"parent_id": "8",
+"tags": PackedStringArray(),
+"text": "I will get right into it.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "I will get right into it.",
+"type": "dialogue"
+},
+"13": {
+"id": "13",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "key_status"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "enter"
+}])
+},
+"next_id": "14",
+"parent_id": "8",
+"type": "mutation"
+},
+"14": {
+"id": "14",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "current_state_player"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "walking"
+}])
+},
+"next_id": "19",
+"parent_id": "8",
+"type": "mutation"
+},
+"15": {
+"condition": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "key_status"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "string",
+"value": "gave"
+}, {
+"type": "colon"
+}])
+},
+"id": "15",
+"next_conditional_id": "19",
+"next_id": "16",
+"next_id_after": "19",
+"type": "condition"
+},
+"16": {
+"character": "Sherrif",
+"character_replacements": Array[Dictionary]([]),
+"id": "16",
+"next_id": "17",
+"parent_id": "15",
+"tags": PackedStringArray(),
+"text": "come through!",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "come through!",
+"type": "dialogue"
+},
+"17": {
+"id": "17",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "key_status"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "enter"
+}])
+},
+"next_id": "18",
+"parent_id": "15",
+"type": "mutation"
+},
+"18": {
+"id": "18",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "current_state_player"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "walking"
+}])
+},
+"next_id": "19",
+"parent_id": "15",
+"type": "mutation"
+},
+"19": {
+"id": "19",
+"is_snippet": false,
+"next_id": "end",
+"type": "goto"
+},
+"2": {
+"condition": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "key_status"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "string",
+"value": ""
+}])
+},
+"id": "2",
+"next_conditional_id": "8",
+"next_id": "3",
+"next_id_after": "19",
+"type": "condition"
+},
+"21": {
+"id": "21",
+"next_id": "22",
+"text": "pick_key",
+"type": "title"
+},
+"22": {
+"condition": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "key_status"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "string",
+"value": ""
+}])
+},
+"id": "22",
+"next_conditional_id": "28",
+"next_id": "23",
+"next_id_after": "end!",
+"type": "condition"
+},
+"23": {
+"character": "Ranger",
+"character_replacements": Array[Dictionary]([]),
+"id": "23",
+"next_id": "24",
+"parent_id": "22",
+"tags": PackedStringArray(),
+"text": "It's my ranger badge.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "It's my ranger badge.",
+"type": "dialogue"
+},
+"24": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "24",
+"next_id": "25",
+"parent_id": "22",
+"tags": PackedStringArray(),
+"text": "Ranger badge has been added to your inventory!",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Ranger badge has been added to your inventory!",
+"type": "dialogue"
+},
+"25": {
+"id": "25",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "key_status"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "has"
+}])
+},
+"next_id": "26",
+"parent_id": "22",
+"type": "mutation"
+},
+"26": {
+"id": "26",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "current_state_player"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "walking"
+}])
+},
+"next_id": "27",
+"parent_id": "22",
+"type": "mutation"
+},
+"27": {
+"id": "27",
+"is_snippet": false,
+"next_id": "end",
+"parent_id": "22",
+"type": "goto"
+},
+"28": {
+"id": "28",
+"next_conditional_id": "end!",
+"next_id": "29",
+"next_id_after": "end!",
+"type": "condition"
+},
+"29": {
+"id": "29",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "current_state_player"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "walking"
+}])
+},
+"next_id": "30",
+"parent_id": "28",
+"type": "mutation"
+},
+"3": {
+"character": "Officer",
+"character_replacements": Array[Dictionary]([]),
+"id": "3",
+"next_id": "4",
+"parent_id": "2",
+"tags": PackedStringArray(),
+"text": "Bandits have taken over the saloon. If only we had a ranger to help us out!",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Bandits have taken over the saloon. If only we had a ranger to help us out!",
+"type": "dialogue"
+},
+"30": {
+"id": "30",
+"is_snippet": false,
+"next_id": "end",
+"parent_id": "28",
+"type": "goto"
+},
+"4": {
+"character": "Ranger",
+"character_replacements": Array[Dictionary]([]),
+"id": "4",
+"next_id": "5",
+"parent_id": "2",
+"tags": PackedStringArray(),
+"text": "I am a ranger!",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "I am a ranger!",
+"type": "dialogue"
+},
+"5": {
+"character": "Officer",
+"character_replacements": Array[Dictionary]([]),
+"id": "5",
+"next_id": "6",
+"parent_id": "2",
+"tags": PackedStringArray(),
+"text": "Show me your ranger badge and i will let you pass.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Show me your ranger badge and i will let you pass.",
+"type": "dialogue"
+},
+"6": {
+"character": "Ranger's thoughts",
+"character_replacements": Array[Dictionary]([]),
+"id": "6",
+"next_id": "7",
+"parent_id": "2",
+"tags": PackedStringArray(),
+"text": "I think i left my ranger badge in my hotel room!",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "I think i left my ranger badge in my hotel room!",
+"type": "dialogue"
+},
+"7": {
+"id": "7",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "current_state_player"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "walking"
+}])
+},
+"next_id": "19",
+"parent_id": "2",
+"type": "mutation"
+},
+"8": {
+"condition": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "key_status"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "string",
+"value": "has"
+}])
+},
+"id": "8",
+"next_conditional_id": "15",
+"next_id": "9",
+"next_id_after": "19",
+"type": "condition"
+},
+"9": {
+"character": "Ranger",
+"character_replacements": Array[Dictionary]([]),
+"id": "9",
+"next_id": "10",
+"parent_id": "8",
+"tags": PackedStringArray(),
+"text": "Here is my ranger badge.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Here is my ranger badge.",
+"type": "dialogue"
+}
+}
+metadata/dialogue_manager_version = "2.32.2"
