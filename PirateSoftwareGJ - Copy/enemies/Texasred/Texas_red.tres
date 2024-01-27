@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=4 format=3 uid="uid://borvds3kc3ndn"]
+
+[ext_resource type="PackedScene" uid="uid://ibr8muivqslt" path="res://enemies/Texasred/texas_red_ai.tscn" id="1_lrfem"]
+[ext_resource type="Script" path="res://custom_resources/enemy_stats.gd" id="1_tjhfn"]
+[ext_resource type="Texture2D" uid="uid://dep2s7o013y6r" path="res://art/texas_red.png" id="2_8sxec"]
+
+[resource]
+script = ExtResource("1_tjhfn")
+ai = ExtResource("1_lrfem")
+max_health = 10
+art = ExtResource("2_8sxec")

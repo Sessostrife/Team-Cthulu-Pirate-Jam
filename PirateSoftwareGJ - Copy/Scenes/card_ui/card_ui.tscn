@@ -1,0 +1,135 @@
+[gd_scene load_steps=14 format=3 uid="uid://doshpm3yi6lcr"]
+
+[ext_resource type="Theme" uid="uid://d1g4bjj180ctf" path="res://maintheme.tres" id="1"]
+[ext_resource type="Script" path="res://Scenes/card_ui/card_ui.gd" id="2_b5j73"]
+[ext_resource type="Script" path="res://Scenes/card_ui/card_state_machine.gd" id="3"]
+[ext_resource type="Texture2D" uid="uid://wgs0rt5xbm13" path="res://art/bg.png" id="3_rafxa"]
+[ext_resource type="StyleBox" uid="uid://b3pamm77ja1cu" path="res://Scenes/card_ui/card_base_stylebox.tres" id="3_vee8k"]
+[ext_resource type="Script" path="res://Scenes/card_ui/card_state/card_released_state.gd" id="4"]
+[ext_resource type="Texture2D" uid="uid://b6qmgbmhva1dj" path="res://art/blue_card_frame.png" id="4_eehlo"]
+[ext_resource type="Script" path="res://Scenes/card_ui/card_state/card_dragging_state.gd" id="5"]
+[ext_resource type="Script" path="res://Scenes/card_ui/card_state/card_clicked_state.gd" id="6"]
+[ext_resource type="Script" path="res://Scenes/card_ui/card_state/card_base_state.gd" id="7"]
+[ext_resource type="Script" path="res://Scenes/card_ui/card_state/card_aiming_state.gd" id="8_f2mni"]
+
+[sub_resource type="Theme" id="Theme_o617x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_15qie"]
+size = Vector2(62, 55)
+
+[node name="Card UI" type="Control"]
+custom_minimum_size = Vector2(50, 60)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_right = -430.0
+offset_bottom = -211.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1")
+script = ExtResource("2_b5j73")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(31.5, 44.5)
+scale = Vector2(62, 87)
+texture = ExtResource("3_rafxa")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_right = 200.0
+offset_bottom = 291.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.25, 0.25)
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("3_vee8k")
+
+[node name="Cost" type="Label" parent="."]
+layout_mode = 0
+offset_left = 48.0
+offset_right = 61.0
+offset_bottom = 14.0
+theme = SubResource("Theme_o617x")
+theme_override_font_sizes/font_size = 9
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 1
+offset_left = 2.0
+offset_top = 13.0
+offset_right = 60.0
+offset_bottom = 45.0
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Cardtext" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -23.0
+offset_top = -13.0
+offset_right = 36.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 0
+autowrap_mode = 2
+
+[node name="Cardname" type="Label" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 3.0
+offset_right = 46.0
+offset_bottom = 12.0
+
+[node name="CardFrame" type="Sprite2D" parent="."]
+position = Vector2(31.5, 45)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_eehlo")
+
+[node name="DropPointDetector" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DropPointDetector"]
+position = Vector2(31, 61.5)
+shape = SubResource("RectangleShape2D_15qie")
+
+[node name="CardStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3")
+initial_state = NodePath("CardBaseState")
+
+[node name="CardBaseState" type="Node" parent="CardStateMachine"]
+script = ExtResource("7")
+
+[node name="CardClickedState" type="Node" parent="CardStateMachine"]
+script = ExtResource("6")
+state = 1
+
+[node name="CardDraggingState" type="Node" parent="CardStateMachine"]
+script = ExtResource("5")
+state = 2
+
+[node name="CardReleasedState" type="Node" parent="CardStateMachine"]
+script = ExtResource("4")
+state = 4
+
+[node name="CardAimingState" type="Node" parent="CardStateMachine"]
+script = ExtResource("8_f2mni")
+state = 3
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="area_entered" from="DropPointDetector" to="." method="_on_drop_point_detector_area_entered"]
+[connection signal="area_exited" from="DropPointDetector" to="." method="_on_drop_point_detector_area_exited"]

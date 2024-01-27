@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://candu5jkvex67"]
+
+[ext_resource type="StyleBox" uid="uid://b3pamm77ja1cu" path="res://Scenes/card_ui/card_base_stylebox.tres" id="1_cov16"]
+[ext_resource type="Script" path="res://Scenes/card_ui/mana_ui.gd" id="2_lptt5"]
+[ext_resource type="Texture2D" uid="uid://bk1b8gop51hg5" path="res://art/mana_symbol.png" id="3_7glwx"]
+
+[sub_resource type="Theme" id="Theme_1b65k"]
+Panel/styles/panel = ExtResource("1_cov16")
+
+[node name="ManaUI" type="Panel"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = -60.0
+offset_right = 90.0
+grow_vertical = 0
+theme = SubResource("Theme_1b65k")
+script = ExtResource("2_lptt5")
+
+[node name="Image" type="Sprite2D" parent="."]
+position = Vector2(14.5, 14.5)
+scale = Vector2(0.421875, 0.421875)
+texture = ExtResource("3_7glwx")
+
+[node name="ManaLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "3/3"
+horizontal_alignment = 1
+vertical_alignment = 1

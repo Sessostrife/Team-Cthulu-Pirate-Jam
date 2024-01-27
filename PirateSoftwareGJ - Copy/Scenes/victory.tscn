@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5e0m3dgl7d0l"]
+
+[ext_resource type="Script" path="res://Scenes/victory.gd" id="1_u1uxe"]
+[ext_resource type="Texture2D" uid="uid://doowjtmqg3vpb" path="res://Assets/Victory.png" id="2_67luw"]
+
+[node name="Victory" type="Node2D"]
+script = ExtResource("1_u1uxe")
+
+[node name="Victory" type="Sprite2D" parent="."]
+position = Vector2(239.5, 135)
+scale = Vector2(1.1975, 0.893333)
+texture = ExtResource("2_67luw")
+
+[node name="MainMenu" type="Button" parent="."]
+offset_left = 1.0
+offset_top = 237.0
+offset_right = 89.0
+offset_bottom = 268.0
+text = "Play Again"
+
+[connection signal="pressed" from="MainMenu" to="." method="_on_main_menu_pressed"]

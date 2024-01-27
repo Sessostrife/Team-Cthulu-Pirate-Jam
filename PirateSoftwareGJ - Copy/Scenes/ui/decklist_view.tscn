@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://dokxlmfj3ui0k"]
+
+[ext_resource type="Script" path="res://Scenes/ui/hand.gd" id="1_gmg48"]
+[ext_resource type="Script" path="res://Scenes/ui/show_decklist.gd" id="1_lyy8a"]
+[ext_resource type="Resource" uid="uid://c8caf46kv4lpb" path="res://characters/warrior/warrior.tres" id="3_455xa"]
+
+[node name="Decklist" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ShowDecklist" type="Button" parent="."]
+layout_mode = 2
+offset_left = 10.0
+offset_top = 129.0
+offset_right = 126.0
+offset_bottom = 160.0
+text = "Show Decklist"
+script = ExtResource("1_lyy8a")
+
+[node name="Hand" type="HBoxContainer" parent="ShowDecklist"]
+layout_mode = 2
+offset_left = 241.0
+offset_top = -93.0
+offset_right = 470.0
+offset_bottom = 139.0
+script = ExtResource("1_gmg48")
+char_stats = ExtResource("3_455xa")

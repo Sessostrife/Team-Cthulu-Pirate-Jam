@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnk7d3qwbhu8g"]
+
+[ext_resource type="Script" path="res://Scenes/player/player_handler.gd" id="1_dmlwp"]
+[ext_resource type="Script" path="res://Scenes/Hand2.gd" id="3_pwqaj"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PlayerHandler" type="Node" parent="." node_paths=PackedStringArray("hand", "hand2")]
+script = ExtResource("1_dmlwp")
+hand = NodePath("../Hand2")
+hand2 = NodePath("../Hand2")
+
+[node name="ShowDecklist" type="Button" parent="."]
+layout_mode = 2
+offset_left = -1.0
+offset_top = 119.0
+offset_right = 115.0
+offset_bottom = 159.0
+text = "Show Decklist"
+
+[node name="Hand2" type="GridContainer" parent="."]
+offset_left = 128.0
+offset_right = 481.0
+offset_bottom = 269.0
+theme_override_constants/v_separation = 50
+columns = 5
+script = ExtResource("3_pwqaj")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 128.0
+offset_right = 481.0
+offset_bottom = 269.0
+color = Color(1, 1, 1, 0)
+
+[connection signal="pressed" from="ShowDecklist" to="PlayerHandler" method="_on_show_decklist_pressed"]

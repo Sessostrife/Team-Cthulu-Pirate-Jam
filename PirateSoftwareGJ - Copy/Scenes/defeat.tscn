@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://ye2u0pkaha48"]
+
+[ext_resource type="Script" path="res://Scenes/victory.gd" id="1_w5qku"]
+[ext_resource type="Texture2D" uid="uid://cwhhcqwubmagx" path="res://Assets/defeated_screen.png" id="2_458ed"]
+
+[node name="Defeat" type="Node2D"]
+script = ExtResource("1_w5qku")
+
+[node name="DefeatedScreen" type="Sprite2D" parent="."]
+position = Vector2(240, 135.5)
+scale = Vector2(1.195, 0.896667)
+texture = ExtResource("2_458ed")
+
+[node name="MainMenu" type="Button" parent="."]
+offset_left = 1.0
+offset_top = 237.0
+offset_right = 89.0
+offset_bottom = 268.0
+text = "Play Again"
+
+[connection signal="pressed" from="MainMenu" to="." method="_on_main_menu_pressed"]

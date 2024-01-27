@@ -1,0 +1,395 @@
+[gd_scene load_steps=7 format=3 uid="uid://cnup8os8x7wph"]
+
+[ext_resource type="Texture2D" uid="uid://cm73vxkdko6m8" path="res://art/reward_BG.png" id="1_7l8uj"]
+[ext_resource type="Script" path="res://RewardHandler.gd" id="1_bin3i"]
+[ext_resource type="Script" path="res://Scenes/Hand2.gd" id="2_mushq"]
+[ext_resource type="Script" path="res://Scenes/ui/hand.gd" id="3_2gh7q"]
+[ext_resource type="ButtonGroup" uid="uid://7rkbr27shfjj" path="res://PlayerDeckButton.tres" id="4_kt4fh"]
+[ext_resource type="ButtonGroup" uid="uid://bpgb60pg2cj7v" path="res://RewardButtons.tres" id="5_fd2x4"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 479.0
+offset_bottom = 300.0
+texture = ExtResource("1_7l8uj")
+
+[node name="PlayerHandler" type="Node" parent="." node_paths=PackedStringArray("hand2")]
+script = ExtResource("1_bin3i")
+hand2 = NodePath("HBoxContainer/Hand2")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PlayerHandler"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Hand2" type="GridContainer" parent="PlayerHandler/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+theme_override_constants/h_separation = 25
+theme_override_constants/v_separation = 52
+columns = 5
+script = ExtResource("2_mushq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PlayerHandler/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer" type="VBoxContainer" parent="PlayerHandler/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="Rewardcard1" type="HBoxContainer" parent="PlayerHandler/HBoxContainer/VBoxContainer/PanelContainer" groups=["RewardGroup"]]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+script = ExtResource("3_2gh7q")
+
+[node name="PanelContainer2" type="VBoxContainer" parent="PlayerHandler/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="Control2" type="Control" parent="PlayerHandler/HBoxContainer/VBoxContainer/PanelContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Rewardcard2" type="HBoxContainer" parent="PlayerHandler/HBoxContainer/VBoxContainer/PanelContainer2" groups=["RewardGroup"]]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+script = ExtResource("3_2gh7q")
+
+[node name="Control" type="Control" parent="PlayerHandler/HBoxContainer/VBoxContainer/PanelContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 200.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PlayerHandler/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PlayerHandler"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="PlayerHandler/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+columns = 5
+
+[node name="PanelContainer" type="VBoxContainer" parent="PlayerHandler/HBoxContainer2/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="PlayerHandler/HBoxContainer2/GridContainer/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.5
+
+[node name="Card0" type="CheckButton" parent="PlayerHandler/HBoxContainer2/GridContainer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+button_group = ExtResource("4_kt4fh")
+
+[node name="Control2" type="Control" parent="PlayerHandler/HBoxContainer2/GridContainer/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PanelContainer2" type="VBoxContainer" parent="PlayerHandler/HBoxContainer2/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="PlayerHandler/HBoxContainer2/GridContainer/PanelContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.5
+
+[node name="Card1" type="CheckButton" parent="PlayerHandler/HBoxContainer2/GridContainer/PanelContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+button_group = ExtResource("4_kt4fh")
+
+[node name="Control2" type="Control" parent="PlayerHandler/HBoxContainer2/GridContainer/PanelContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PanelContainer3" type="VBoxContainer" parent="PlayerHandler/HBoxContainer2/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="PlayerHandler/HBoxContainer2/GridContainer/PanelContainer3"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.5
+
+[node name="Card2" type="CheckButton" parent="PlayerHandler/HBoxContainer2/GridContainer/PanelContainer3"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+button_group = ExtResource("4_kt4fh")
+
+[node name="Control2" type="Control" parent="PlayerHandler/HBoxContainer2/GridContainer/PanelContainer3"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PanelContainer4" type="VBoxContainer" parent="PlayerHandler/HBoxContainer2/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="PlayerHandler/HBoxContainer2/GridContainer/PanelContainer4"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.5
+
+[node name="Card3" type="CheckButton" parent="PlayerHandler/HBoxContainer2/GridContainer/PanelContainer4"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+button_group = ExtResource("4_kt4fh")
+
+[node name="Control2" type="Control" parent="PlayerHandler/HBoxContainer2/GridContainer/PanelContainer4"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PanelContainer5" type="VBoxContainer" parent="PlayerHandler/HBoxContainer2/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="PlayerHandler/HBoxContainer2/GridContainer/PanelContainer5"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.5
+
+[node name="Card4" type="CheckButton" parent="PlayerHandler/HBoxContainer2/GridContainer/PanelContainer5"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+button_group = ExtResource("4_kt4fh")
+
+[node name="Control2" type="Control" parent="PlayerHandler/HBoxContainer2/GridContainer/PanelContainer5"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PanelContainer6" type="VBoxContainer" parent="PlayerHandler/HBoxContainer2/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="PlayerHandler/HBoxContainer2/GridContainer/PanelContainer6"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.5
+
+[node name="Card5" type="CheckButton" parent="PlayerHandler/HBoxContainer2/GridContainer/PanelContainer6"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+button_group = ExtResource("4_kt4fh")
+
+[node name="Control2" type="Control" parent="PlayerHandler/HBoxContainer2/GridContainer/PanelContainer6"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.8
+
+[node name="PanelContainer7" type="VBoxContainer" parent="PlayerHandler/HBoxContainer2/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="PlayerHandler/HBoxContainer2/GridContainer/PanelContainer7"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.5
+
+[node name="Card6" type="CheckButton" parent="PlayerHandler/HBoxContainer2/GridContainer/PanelContainer7"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+button_group = ExtResource("4_kt4fh")
+
+[node name="Control2" type="Control" parent="PlayerHandler/HBoxContainer2/GridContainer/PanelContainer7"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.8
+
+[node name="PanelContainer8" type="VBoxContainer" parent="PlayerHandler/HBoxContainer2/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="PlayerHandler/HBoxContainer2/GridContainer/PanelContainer8"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.5
+
+[node name="Card7" type="CheckButton" parent="PlayerHandler/HBoxContainer2/GridContainer/PanelContainer8"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+button_group = ExtResource("4_kt4fh")
+
+[node name="Control2" type="Control" parent="PlayerHandler/HBoxContainer2/GridContainer/PanelContainer8"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.8
+
+[node name="PanelContainer9" type="VBoxContainer" parent="PlayerHandler/HBoxContainer2/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="PlayerHandler/HBoxContainer2/GridContainer/PanelContainer9"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.5
+
+[node name="Card8" type="CheckButton" parent="PlayerHandler/HBoxContainer2/GridContainer/PanelContainer9"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+button_group = ExtResource("4_kt4fh")
+
+[node name="Control2" type="Control" parent="PlayerHandler/HBoxContainer2/GridContainer/PanelContainer9"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.8
+
+[node name="PanelContainer10" type="VBoxContainer" parent="PlayerHandler/HBoxContainer2/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="PlayerHandler/HBoxContainer2/GridContainer/PanelContainer10"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.5
+
+[node name="Card9" type="CheckButton" parent="PlayerHandler/HBoxContainer2/GridContainer/PanelContainer10"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+button_group = ExtResource("4_kt4fh")
+
+[node name="Control2" type="Control" parent="PlayerHandler/HBoxContainer2/GridContainer/PanelContainer10"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PlayerHandler/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer" type="VBoxContainer" parent="PlayerHandler/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="PlayerHandler/HBoxContainer2/VBoxContainer/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+
+[node name="Reward0" type="CheckButton" parent="PlayerHandler/HBoxContainer2/VBoxContainer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+button_group = ExtResource("5_fd2x4")
+
+[node name="Control2" type="Control" parent="PlayerHandler/HBoxContainer2/VBoxContainer/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.9
+
+[node name="PanelContainer2" type="VBoxContainer" parent="PlayerHandler/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="PlayerHandler/HBoxContainer2/VBoxContainer/PanelContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+
+[node name="Reward1" type="CheckButton" parent="PlayerHandler/HBoxContainer2/VBoxContainer/PanelContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+button_group = ExtResource("5_fd2x4")
+
+[node name="Control2" type="Control" parent="PlayerHandler/HBoxContainer2/VBoxContainer/PanelContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="Control" type="Control" parent="PlayerHandler/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Swap" type="Button" parent="PlayerHandler"]
+offset_left = 338.0
+offset_top = 234.0
+offset_right = 388.0
+offset_bottom = 265.0
+text = "Swap
+"
+
+[node name="PlayerDeck" type="Label" parent="PlayerHandler"]
+offset_left = 5.0
+offset_top = 232.0
+offset_right = 104.0
+offset_bottom = 267.0
+text = "Player Deck
+"
+
+[node name="Rewards" type="Label" parent="PlayerHandler"]
+offset_left = 397.0
+offset_top = 238.0
+offset_right = 464.0
+offset_bottom = 261.0
+text = "Rewards"
+
+[node name="Label" type="Label" parent="PlayerHandler"]
+offset_left = 107.0
+offset_top = 221.0
+offset_right = 331.0
+offset_bottom = 270.0
+text = "Pick one from deck and one reward, then press swap!"
+autowrap_mode = 2
+
+[connection signal="pressed" from="PlayerHandler/HBoxContainer2/GridContainer/PanelContainer/Card0" to="PlayerHandler" method="_on_card_0_pressed"]
+[connection signal="pressed" from="PlayerHandler/HBoxContainer2/GridContainer/PanelContainer2/Card1" to="PlayerHandler" method="_on_card_1_pressed"]
+[connection signal="pressed" from="PlayerHandler/HBoxContainer2/GridContainer/PanelContainer3/Card2" to="PlayerHandler" method="_on_card_2_pressed"]
+[connection signal="pressed" from="PlayerHandler/HBoxContainer2/GridContainer/PanelContainer4/Card3" to="PlayerHandler" method="_on_card_3_pressed"]
+[connection signal="pressed" from="PlayerHandler/HBoxContainer2/GridContainer/PanelContainer5/Card4" to="PlayerHandler" method="_on_card_4_pressed"]
+[connection signal="pressed" from="PlayerHandler/HBoxContainer2/GridContainer/PanelContainer6/Card5" to="PlayerHandler" method="_on_card_5_pressed"]
+[connection signal="pressed" from="PlayerHandler/HBoxContainer2/GridContainer/PanelContainer7/Card6" to="PlayerHandler" method="_on_card_6_pressed"]
+[connection signal="pressed" from="PlayerHandler/HBoxContainer2/GridContainer/PanelContainer8/Card7" to="PlayerHandler" method="_on_card_7_pressed"]
+[connection signal="pressed" from="PlayerHandler/HBoxContainer2/GridContainer/PanelContainer9/Card8" to="PlayerHandler" method="_on_card_8_pressed"]
+[connection signal="pressed" from="PlayerHandler/HBoxContainer2/GridContainer/PanelContainer10/Card9" to="PlayerHandler" method="_on_card_9_pressed"]
+[connection signal="pressed" from="PlayerHandler/HBoxContainer2/VBoxContainer/PanelContainer/Reward0" to="PlayerHandler" method="_on_reward_0_pressed"]
+[connection signal="pressed" from="PlayerHandler/HBoxContainer2/VBoxContainer/PanelContainer2/Reward1" to="PlayerHandler" method="_on_reward_1_pressed"]
+[connection signal="pressed" from="PlayerHandler/Swap" to="PlayerHandler" method="_on_swap_pressed"]

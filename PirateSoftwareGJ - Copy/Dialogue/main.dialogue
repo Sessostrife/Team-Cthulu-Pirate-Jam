@@ -1,0 +1,30 @@
+~ start
+if key_status == ""
+	Officer: Bandits have taken over the saloon. If only we had a ranger to help us out!
+	Ranger: I am a ranger!
+	Officer: Show me your ranger badge and i will let you pass.
+	Ranger's thoughts: I think i left my ranger badge in my hotel room!
+	set current_state_player = "walking"
+elif key_status == "has"
+	Ranger: Here is my ranger badge.
+	set key_status = "gave"
+	Officer: Welcome ranger, please help us clear the saloon from the bandits.
+	Ranger: I will get right into it.
+	set key_status = "enter"
+	set current_state_player = "walking"
+elif key_status == "gave":
+	Sherrif: come through!
+	set key_status = "enter"
+	set current_state_player = "walking"
+=> END
+
+~ pick_key
+if key_status == ""
+	Ranger: It's my ranger badge.
+	Ranger badge has been added to your inventory!
+	set key_status = "has"
+	set current_state_player = "walking"
+	=> END
+else
+	set current_state_player = "walking"
+	=> END

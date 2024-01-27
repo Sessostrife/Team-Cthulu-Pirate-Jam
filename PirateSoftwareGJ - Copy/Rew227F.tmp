@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnup8os8x7wph"]
+
+[ext_resource type="Script" path="res://RewardHandler.gd" id="1_bin3i"]
+[ext_resource type="Script" path="res://Scenes/Hand2.gd" id="2_mushq"]
+[ext_resource type="Script" path="res://Scenes/ui/hand.gd" id="3_2gh7q"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayerHandler" type="Node" parent="."]
+script = ExtResource("1_bin3i")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PlayerHandler"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Hand2" type="GridContainer" parent="PlayerHandler/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+script = ExtResource("2_mushq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PlayerHandler/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Rewardcard1" type="HBoxContainer" parent="PlayerHandler/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("3_2gh7q")
+
+[node name="Rewardcard2" type="HBoxContainer" parent="PlayerHandler/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("3_2gh7q")

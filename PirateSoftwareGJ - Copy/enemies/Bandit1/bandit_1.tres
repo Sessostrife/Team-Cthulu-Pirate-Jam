@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=4 format=3 uid="uid://f5b2dmm11483"]
+
+[ext_resource type="PackedScene" uid="uid://bu27wyd0mqgav" path="res://enemies/Bandit1/bandit_1_ai.tscn" id="1_pw5x8"]
+[ext_resource type="Texture2D" uid="uid://cwr5u53jaw2hn" path="res://art/bandit1.png" id="2_v2skp"]
+[ext_resource type="Script" path="res://custom_resources/enemy_stats.gd" id="3_6fb8l"]
+
+[resource]
+script = ExtResource("3_6fb8l")
+ai = ExtResource("1_pw5x8")
+max_health = 25
+art = ExtResource("2_v2skp")
+stun = false
